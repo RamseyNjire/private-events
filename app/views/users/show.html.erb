@@ -1,2 +1,6 @@
 <h1>User <%= @user.username.capitalize %></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% @user.events.each do |event| %>
+  <%= event.name %><br>
+  <%= event.description %><br>
+  <%= event.date %><br>
+<% end %>
