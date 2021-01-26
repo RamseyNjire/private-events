@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'events/index'
-  get 'events/new'
-  get 'events/create'
-  get 'events/show'
-  devise_for :users
-  resources :users, only: [:show]
-  resources :events, only: [:index, :new, :create, :show]
+  resources :users, only: [:new, :create, :show]
+  root "pages#index"
+  get  '/login', to: 'sessions#new'
+  post  '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  resources :events, only: [:new, :create, :show, :index]
+  resources :invitations, only: [:new, :create]
 end
