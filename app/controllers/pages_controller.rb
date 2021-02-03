@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   include SessionsHelper
 
-  def index; end
+  def index 
+  end
 end
