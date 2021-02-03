@@ -1,23 +1,23 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-describe 'Signing in', type: :feature do
-  it 'tests if sign in is successful' do
-    user = User.new(name: 'Murilo', email: 'murilo@gmail.com')
+describe 'The sign-in process', type: :feature do
+  it 'tests for successful sign-ins' do
+    user = User.new(name: 'username', email: 'email@example.com')
     user.save
     visit '/login'
     within('form') do
-      fill_in 'session_name', with: 'Murilo'
+      fill_in 'session_name', with: 'username'
     end
     click_button 'commit'
 
-    expect(page).to have_content 'Welcome to Events planner, Murilo!'
+    expect(page).to have_content 'Welcome to Events planner, username!'
   end
 end
 
-RSpec.describe 'Signing up', type: :system do
-  describe 'signup page is showing the right fields' do
-    it 'shows the username from signup page' do
+RSpec.describe 'The sign-up process', type: :system do
+  describe 'the correct fields appear on the sign-up page' do
+    it 'shows the correct username' do
       visit '/users/new'
       expect(page).to have_content 'Username'
     end

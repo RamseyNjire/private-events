@@ -4,19 +4,14 @@ require 'capybara/rspec'
 
 RSpec.describe Event, type: :model do
   context 'validation tests' do
-    it "Shouldn't save if there's no date" do
+    it "Should only save if there is a date" do
       e = Event.new(creator_id: 1, description: 'Event 1')
       expect(e.save).to eq(false)
     end
 
-    it "Shouldn't save if the description is more than 300 characters" do
-      bigstr = 'Event 1247Event 1247Event 1247Event 1247Event 1247Event
-               1247Event 1247Event 1247Event 1247Event 1247Event 1247Event
-               1247Event 1247Event 1247Event 1247Event 1247Event 1247Event
-               1247Event 1247Event 1247Event 1247Event 1247Event 1247Event
-               1247Event 1247Event 1247Event 1247Event 1247Event 1247Event
-               1247Event 1247Event 1247Event 1247Event 1247Event 1247Event
-               1247Event 1247Event 1247Event 1247Event 1247'
+    it "Should note save descriptions with more than 300 characters" do
+      bigstr = ''
+      301.times { |i| bigstr + 'str '}
       e = Event.new(creator_id: 1, date: '2020-05-20', description: bigstr)
       expect(e.save).to eq(false)
     end

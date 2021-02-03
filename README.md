@@ -42,14 +42,19 @@ $ `rails db:migrate`
 
 $ `rails s`
 
-- visit  [local host](http://localost:3000) on your browser to view the app.
+- visit  [local host](http://localhost:3000) on your browser to view the app.
 
 - You can also run the Rubocop linter:
 
 $ `rubocop .`
 
+- In case you want to run the tests:
 
-## Usage
+`rspec`
+
+or 
+
+`bundle exec rspec`
 
 
 
