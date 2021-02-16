@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   def show
     @invitation = current_user.invitations.build
     @event = Event.find(params[:id])
-    @attendee = @event.attendees
+    @attendee = @event.attendees unless @attendee == current_user
   end
 
   private
