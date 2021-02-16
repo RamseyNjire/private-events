@@ -1,0 +1,12 @@
+<% if current_user %>
+  <div class="home-page">
+    <h1>Welcome to Events planner, <%= current_user.name %>!</h1>
+  </div>
+<% else %>
+  <div class="index-page">
+    <h1>Welcome to The Private Events App</h1>
+    <h4>(Plan A Dinner Party or Other Event Easily!)</h4>
+    <h2>To Start Using the App, Please <%= link_to 'Register', new_user_path %></h2>
+  </div>
+<% end %>
+   

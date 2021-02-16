@@ -1,0 +1,27 @@
+<!-- <%= render 'layouts/header' %> -->
+<div class = "flex">
+  <fieldset class="field-danger">
+  <div>
+    <h1 class="danger">Past Events</h1>
+    <% @past.each do | event | %>
+      <strong><%= event.creator.name %>: </strong>
+      <p><%= event.date %></p>
+      <%= link_to event do %>
+        <p><%= event.description %></p>
+      <% end %>
+    <% end %>
+  </div>
+</fieldset>
+  <fieldset class="field">
+  <div>
+    <h1 class="warm">Upcoming Events</h1>
+    <% @upcoming.each do | event | %>
+      <strong><%= event.creator.name %>: </strong>
+      <p><%= event.date %></p>
+      <%= link_to event do %>
+        <p><%= event.description %></p>
+      <% end %>
+    <% end %>
+  </div>
+</fieldset>
+</div>
